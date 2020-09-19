@@ -8,8 +8,8 @@ import Home from "../pages/Home.vue";
 import Profile from "../pages/Profile.vue";
 // @ts-ignore
 import BlogWindow from "../pages/BlogWindow.vue";
-
-// import CommentsComponent from "../components/CommentsComponent.vue"
+// @ts-ignore
+import CreateWindow from "../pages/CreateWindow.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +23,13 @@ const routes = [
     path: "/profile",
     name: "Profile",
     component: Profile,
+    beforeEnter: authGuard,
+  },
+
+  {
+    path: "/create",
+    name: "create-window",
+    component: CreateWindow,
     beforeEnter: authGuard,
   },
 

@@ -8,10 +8,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    profile: {},
+    // Arrays
     blogs: [],
-    activeBlog: {},
+    profileBlogs: [],
     activeComments: [],
+
+    // Individual Objects
+    activeBlog: {},
+    profile: {},
   },
   mutations: {
     setProfile(state, profile) {
@@ -68,13 +72,13 @@ export default new Vuex.Store({
 
     // SECTION Comment Actions
     // REVIEW Check this, res.data? etc
-    // async getCommentsByBlog({ commit, dispatch }, blogId) {
-    //   console.log("store-comments", blogId);
-    //   let res = await api.get("blogs/" + blogId + "/comments");
-    //   // dispatch("getActiveBlog", )
-    //   let activeComments = res.data;
-    //   console.log("store-comments-activeComments", activeComments);
-    //   commit("setComments", activeComments);
-    // },
+    async getCommentsByBlog({ commit, dispatch }, blogId) {
+      console.log("store-comments", blogId);
+      let res = await api.get("blogs/" + blogId + "/comments");
+      // dispatch("getActiveBlog", )
+      let activeComments = res.data;
+      console.log("store-comments-activeComments", activeComments);
+      commit("setComments", activeComments);
+    },
   },
 });

@@ -8,14 +8,15 @@
         placeholder="Blog Title"
         aria-describedby="helpId"
       />
-      <!-- TODO Change to TextArea -->
+      <textarea class="form-control" v-model="newBlog.body" rows="10" placeholder="Content..."></textarea>
+      <!-- Changed to TextArea
       <input
         type="text"
         class="form-control"
         v-model="newBlog.body"
         placeholder="Content..."
         aria-describedby="helpId"
-      />
+      />-->
       <input
         type="text"
         class="form-control"
@@ -29,7 +30,7 @@
         type="text"
         class="form-control"
         v-model="newBlog.tags"
-        placeholder="Content..."
+        placeholder="Add tags"
         aria-describedby="helpId"
       />
     </div>
