@@ -10,6 +10,8 @@ import Profile from "../pages/Profile.vue";
 import BlogWindow from "../pages/BlogWindow.vue";
 // @ts-ignore
 import CreateWindow from "../pages/CreateWindow.vue";
+// @ts-ignore
+import EditWindow from "../pages/EditWindow.vue";
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,13 @@ const routes = [
     path: "/create",
     name: "create-window",
     component: CreateWindow,
+    beforeEnter: authGuard,
+  },
+
+  {
+    path: "/blogs/:blogId/edit",
+    name: "edit-window",
+    component: EditWindow,
     beforeEnter: authGuard,
   },
 

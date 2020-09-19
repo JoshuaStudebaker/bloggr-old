@@ -2,7 +2,8 @@
   <div class="blog-window">
     <h3>{{activeBlog.title}}</h3>
     <p>{{activeBlog.body}}</p>
-    <button type="button" class="btn" @click="deleteBlogPost">Delete Blog Post</button>
+    <button type="button" class="btn btn-danger" @click="editRedirect">Edit/Delete Post</button>
+
     <comments-component
       v-for="iComment in activeComments"
       :key="iComment.id"
@@ -36,8 +37,8 @@ export default {
   },
 
   methods: {
-    deleteBlogPost() {
-      this.$store.dispatch("deleteBlog", this.activeBlog.id);
+    editRedirect() {
+      this.$store.dispatch("editRedirect", this.activeBlog.id);
     },
   },
 };

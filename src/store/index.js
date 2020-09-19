@@ -30,6 +30,10 @@ export default new Vuex.Store({
       state.activeBlog = activeBlog;
     },
 
+    setUserBlogs(state, userBlogs) {
+      state.profileBlogs = userBlogs
+    }
+
     setComments(state, activeComments) {
       state.activeComments = activeComments;
     },
@@ -58,6 +62,18 @@ export default new Vuex.Store({
       }
     },
 
+    async getUserBlogs({ commit }) {
+      try {
+        let res = await api.get("profile/blogs");
+        console.log("getAll", res);
+        let userBlogs = res.data;
+        console.log("blogs");
+        commit("setUserBlogs", userBlogs);
+      } catch (error) {
+        console.error("For some reason, you are unable to grab user blogs");
+      }
+    },
+
     async getActiveBlog({ commit }, blogId) {
       let res = await api.get("blogs/" + blogId);
       let activeBlog = res.data;
@@ -70,6 +86,13 @@ export default new Vuex.Store({
       commit("setAllBlogs", [...state.blogs, newBlog]);
     },
 
+    editRedirect({ dispatch }, blogId) {      
+      dispatch("getActiveBlog")
+      router.push({ name: "Edit", params: { id: blogId } })
+      
+    }
+
+    
     // SECTION Comment Actions
     // REVIEW Check this, res.data? etc
     async getCommentsByBlog({ commit, dispatch }, blogId) {
