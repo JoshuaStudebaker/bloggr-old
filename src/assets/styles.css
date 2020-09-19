@@ -1,0 +1,69 @@
+:root {
+  --hue-apricot-lighter: hsl(8.57, 81.82%, 79.8%);
+  --hue-apricot: hsl(8.57, 81.82%, 69.8%);
+  --hue-apricot-darker: hsl(8.57, 81.82%, 59.8%);
+
+  --hue-frolic-lighter: hsl(338.74, 81.94%, 79.61%);
+  --hue-frolic: hsl(338.74, 81.94%, 69.61%);
+  --hue-frolic-darker: hsl(338.74, 81.94%, 59.61%);
+  --hue-frolic-darkest: hsl(338.74, 81.94%, 39.61%);
+
+  --hue-golden-wheat-lighter: hsl(40, 81.94%, 79.61%);
+  --hue-golden-wheat: hsl(40, 81.94%, 59.61%);
+  --hue-golden-wheat-darker: hsl(40, 81.94%, 49.61%);
+
+  --hue-seagreen: hsl(148.28, 93.55%, 71.76%);
+  --hue-seagreen-darker: hsl(148.28, 93.55%, 51.76%);
+
+  --hue-lila-purple: hsl(268.46, 92.86%, 67.06%);
+  --hue-lila-purple-darker: hsl(268.46, 92.86%, 47.06%);
+
+  --hue-swan-blue: hsl(177.93, 93.55%, 71.76%);
+  --hue-swan-blue-darker: hsl(177.93, 93.55%, 51.76%);
+
+  --hue-winter-blue: hsla(195, 53%, 79%, 1);
+  --hue-winter-blue-darker: hsla(195, 53%, 59%, 1);
+  --halfway-see-through-winter-blue: hsla(195, 53%, 79%, 0.5);
+
+  --hue-snow: hsla(218, 19%, 98%, 1);
+  --hue-snow-dark: hsla(218, 19%, 94%, 1);
+  --hue-snow-grey: hsla(218, 19%, 89%, 1);
+  --hue-winter-grey: hsla(218, 19%, 59%, 1);
+  --halfway-see-through-snow-grey: hsla(218, 19%, 89%, 0.5);
+  --halfway-see-through-winter-grey: hsla(218, 19%, 59%, 0.75);
+}
+
+body {
+  padding: 0 2rem 0 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--hue-winter-blue);
+  font-family: "Balthazar", serif;
+}
+
+main {
+  flex-grow: 1;
+  background-color: var(--hue-snow);
+}
+
+footer {
+  background-color: var(--hue-apricot);
+  height: 10vh;
+}
+header {
+  background-color: var(--hue-apricot);
+  height: 10vh;
+}
+
+.button-wheat {
+  background-color: var(--hue-golden-wheat);
+  border: 3px solid var(--hue-snow);
+  color: black;
+}
+
+.button-wheat-alt {
+  background-color: var(--hue-golden-wheat-lighter);
+  border: 3px solid var(--hue-golden-wheat-darker);
+  color: var(--hue-golden-wheat-darker);
+}

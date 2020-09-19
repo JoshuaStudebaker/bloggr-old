@@ -1,5 +1,5 @@
 <template>
-  <div class="home container-fluid">
+  <main class="home container-fluid">
     <div class="row">
       <!-- <button type="button" class="btn btn-primary" @click="redirectToBlogForm">Create your blog</button>
       <form-component />-->
@@ -7,12 +7,12 @@
     <div class="row">
       <blogs-component v-for="iBlog in blogs" :key="iBlog.id" :blogProp="iBlog" />
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
 import blogsComponent from "../components/BlogsComponent";
-import formComponent from "../components/FormComponent";
+// import formComponent from "../components/FormComponent";
 export default {
   name: "home",
   components: {
