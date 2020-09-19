@@ -29,11 +29,10 @@ export default {
     blogs() {
       return this.$store.state.blogs;
     },
-    methods: {
-      // redirectToBlogForm() {
-      //   this.$store.dispatch("redirectToBlogForm");
-      },
-    },
+  },
+  methods: {
+    // redirectToBlogForm() {
+    //   this.$store.dispatch("redirectToBlogForm");
   },
 };
 </script>
