@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import router from "../router";
 import { api } from "../services/AxiosService.js";
-import { blogsService } from "../services/BlogsService";
+// import { blogsService } from "../services/BlogsService";
 
 Vue.use(Vuex);
 
@@ -41,26 +41,33 @@ export default new Vuex.Store({
       }
     },
 
-    // SECTION Blog Service Actions
+    // SECTION Blog Actions
     async getAllBlogs({ commit }) {
-      let blogs = await blogsService.getAllBlogs();
+      let res = await api.get("blogs");
+      let blogs = res.data;
       commit("setAllBlogs", blogs);
     },
 
     async getActiveBlog({ commit }, blogId) {
-      console.log("store", blogId);
-      let blog = await blogsService.getActiveBlog(blogId);
-      console.log("store", blog);
-      commit("setActiveBlog", blog);
+      let res = await api.get("blogs/" + blogId);
+      let activeBlog = res.data;
+      commit("setActiveBlog", activeBlog);
     },
 
-    async createBlog({ commit, state }, blogInputs) {
-      let addedBlog = await blogsService.createBlog(blogInputs);
-      commit("setAllBlogs", [...state.blogs, addedBlog]);
+    async createBlog({ commit, state }, newBlogInputs) {
+      let res = await api.post("blogs", newBlogInputs);
+      let newBlog = res.data;
+      commit("setAllBlogs", [...state.blogs, newBlog]);
     },
 
-    async getCommentsByBlog({ commit }, blogId) {
-      let activeComments = await blogsService.getCommentsByBlog(blogId);
+    // SECTION Comment Actions
+    // REVIEW Check this, res.data? etc
+    async getCommentsByBlog({ commit, dispatch }, blogId) {
+      console.log("store-comments", blogId);
+      let res = await api.get("blogs/" + blogId + "/comments");
+      // dispatch("getActiveBlog", )
+      let activeComments = res.data;
+      console.log("store-comments-activeComments", activeComments);
       commit("setComments", activeComments);
     },
   },

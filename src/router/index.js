@@ -1,12 +1,15 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import { authGuard } from "@bcwdev/auth0-vue";
+
 // @ts-ignore
 import Home from "../pages/Home.vue";
 // @ts-ignore
 import Profile from "../pages/Profile.vue";
 // @ts-ignore
 import BlogWindow from "../pages/BlogWindow.vue";
-import { authGuard } from "@bcwdev/auth0-vue";
+
+// import CommentsComponent from "../components/CommentsComponent.vue"
 
 Vue.use(VueRouter);
 

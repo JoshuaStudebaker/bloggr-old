@@ -11,10 +11,9 @@ export default {
   data() {
     return {};
   },
-  // computed: {
-  //   activeComments() {
-  //     return this.$store.state.activeComments;
-  //   },
+  computed: {},
+  methods: {},
+  components: {},
 };
 </script>
 

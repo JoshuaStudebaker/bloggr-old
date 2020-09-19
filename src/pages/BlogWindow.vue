@@ -2,7 +2,11 @@
   <div class="blog-window">
     <h3>{{activeBlog.title}}</h3>
     <p>{{activeBlog.body}}</p>
-    <!-- <comments-component v-for="c in comments" :key="c.id/> -->
+    <comments-component
+      v-for="iComment in activeComments"
+      :key="iComment.id"
+      :commentsProp="iComment"
+    />
   </div>
 </template>
 
@@ -16,14 +20,13 @@ export default {
   mounted() {
     console.log(this.$route.params.blogId);
     this.$store.dispatch("getActiveBlog", this.$route.params.blogId);
-    this.$store.dispatch("getCommentsById", this.$route.params.blogId);
-    // MOunt Comments
+    this.$store.dispatch("getCommentsByBlog", this.$route.params.blogId);
   },
   computed: {
     activeBlog() {
       return this.$store.state.activeBlog;
     },
-    comments() {
+    activeComments() {
       return this.$store.state.activeComments;
     },
   },
