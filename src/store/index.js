@@ -43,9 +43,15 @@ export default new Vuex.Store({
 
     // SECTION Blog Actions
     async getAllBlogs({ commit }) {
-      let res = await api.get("blogs");
-      let blogs = res.data;
-      commit("setAllBlogs", blogs);
+      try {
+        let res = await api.get("blogs");
+        console.log("getAll", res);
+        let blogs = res.data;
+        console.log("blogs");
+        commit("setAllBlogs", blogs);
+      } catch (error) {
+        console.error("For some reason, you are unable to grab blogs");
+      }
     },
 
     async getActiveBlog({ commit }, blogId) {
@@ -62,13 +68,13 @@ export default new Vuex.Store({
 
     // SECTION Comment Actions
     // REVIEW Check this, res.data? etc
-    async getCommentsByBlog({ commit, dispatch }, blogId) {
-      console.log("store-comments", blogId);
-      let res = await api.get("blogs/" + blogId + "/comments");
-      // dispatch("getActiveBlog", )
-      let activeComments = res.data;
-      console.log("store-comments-activeComments", activeComments);
-      commit("setComments", activeComments);
-    },
+    // async getCommentsByBlog({ commit, dispatch }, blogId) {
+    //   console.log("store-comments", blogId);
+    //   let res = await api.get("blogs/" + blogId + "/comments");
+    //   // dispatch("getActiveBlog", )
+    //   let activeComments = res.data;
+    //   console.log("store-comments-activeComments", activeComments);
+    //   commit("setComments", activeComments);
+    // },
   },
 });

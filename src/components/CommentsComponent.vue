@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "comments-component",
-  props: [commentsProp],
+  props: ["commentsProp"],
   data() {
     return {};
   },

@@ -2,6 +2,7 @@
   <div class="blog-window">
     <h3>{{activeBlog.title}}</h3>
     <p>{{activeBlog.body}}</p>
+    <button type="button" class="btn" @click="deleteBlogPost">Delete Blog Post</button>
     <comments-component
       v-for="iComment in activeComments"
       :key="iComment.id"
@@ -9,11 +10,14 @@
     />
   </div>
 </template>
-
+// 
 <script>
 import commentsComponent from "../components/CommentsComponent";
 export default {
   name: "blog-window",
+  components: {
+    commentsComponent,
+  },
   data() {
     return {};
   },
@@ -30,13 +34,12 @@ export default {
       return this.$store.state.activeComments;
     },
   },
-  components: {
-    commentsComponent,
+
+  methods: {
+    deleteBlogPost() {
+      this.$store.dispatch("deleteBlog", this.activeBlog.id);
+    },
   },
-
-  // methods:{
-
-  // }
 };
 </script>
 
