@@ -1,5 +1,6 @@
 <template>
   <div class="comments-component">
+    <h6>{{commentsProp.creatorEmail}}</h6>
     <p>{{commentsProp.body}}</p>
   </div>
 </template>

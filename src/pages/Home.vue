@@ -1,8 +1,8 @@
 <template>
   <div class="home container-fluid">
     <div class="row">
-      <button type="button" class="btn btn-primary" @click="redirectToBlogForm">Create your blog</button>
-      <form-component />
+      <!-- <button type="button" class="btn btn-primary" @click="redirectToBlogForm">Create your blog</button>
+      <form-component />-->
     </div>
     <div class="row">
       <blogs-component v-for="iBlog in blogs" :key="iBlog.id" :blogProp="iBlog" />
@@ -30,8 +30,8 @@ export default {
       return this.$store.state.blogs;
     },
     methods: {
-      redirectToBlogForm() {
-        this.$store.dispatch("redirectToBlogForm");
+      // redirectToBlogForm() {
+      //   this.$store.dispatch("redirectToBlogForm");
       },
     },
   },

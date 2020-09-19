@@ -1,6 +1,7 @@
 <template>
   <div class="blog-window">
     <h3>{{activeBlog.title}}</h3>
+    <h5>{{activeBlog.creator.name}}</h5>
     <p>{{activeBlog.body}}</p>
     <button type="button" class="btn btn-danger" @click="editRedirect">Edit/Delete Post</button>
 

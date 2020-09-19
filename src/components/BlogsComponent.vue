@@ -2,7 +2,8 @@
   <div class="blogs-component">
     <router-link :to="{name:'blog-window', params: {blogId: blogProp.id}}">
       <div>
-        <h5>{{blogProp.title}}</h5>
+        <h4>{{blogProp.title}}</h4>
+        <h6 class="text-muted">{{blogProp.creator.name}}</h6>
         <p>{{blogProp.body}}</p>
       </div>
     </router-link>>
